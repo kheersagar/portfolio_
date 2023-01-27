@@ -90,15 +90,15 @@ function App() {
       <div data-aos="zoom-out-up" className="  max-w-[65rem] m-auto mt-8 grid grid-cols-3 lg:gap-28 px-2">
         <div className="border-r border-r-green-600 text-left transform hover:scale-110 transition-all cursor-pointer">
           <p className="font-bold lg:text-5xl text-green-600">10+</p>
-          <p className="font-semibold text-gray-500 mt-1">Satisfied clients</p>
+          <p className="font-semibold text-gray-500 mt-1 font-mono">Satisfied clients</p>
         </div>
         <div className="border-r border-r-green-600 pl-10 transform hover:scale-110 transition-all cursor-pointer">
           <p className="font-bold lg:text-5xl text-green-600">20+</p>
-          <p className="font-semibold text-gray-500 mt-1">Projects completed</p>
+          <p className="font-semibold text-gray-500 mt-1 font-mono">Projects completed</p>
         </div>
         <div className="pl-10 transform hover:scale-110 transition-all cursor-pointer">
           <p className="font-bold lg:text-5xl text-green-600 ">10+</p>
-          <p className="font-semibold text-gray-500 mt-1">Review given</p>
+          <p className="font-semibold text-gray-500 mt-1 font-mono">Review given</p>
         </div>
       </div>
       {/* hire */}
@@ -108,9 +108,8 @@ function App() {
           <p className="text-5xl font-bold">
             Next <span className="text-green-600">Project?</span>
           </p>
-          <p className="text-md text-gray-600 mt-8">
-            loqbas ia onaos bnfobnas fabnsfob a fabsfaobsf oasf afahfobanf
-            oanbga sgn agnaonba sgbna sgnasgbnasgas g{" "}
+          <p className="text-md text-gray-600 mt-8 font-mono">
+            With Exprience of 2+ years and delivering projects Successfully I can understand and help you Develop app with modern                                               technologies and scale your business.
           </p>
 
           <button className="bg-green-600 text-white px-4 p-2 px- rounded-lg mt-8 text-lg font-semibold cursor-pointer shadow-lg hover:scale-105 transition-all">
@@ -121,22 +120,22 @@ function App() {
           <div data-aos="slide-left" data-aos-delay="700" className="p-4 transform hover:scale-110 transition-all cursor-pointer hover:shadow-xl  rounded-lg">
             <img src={diamond} className="w-10 h-10 mb-2" />
             <p className="font-bold">Visual Design</p>
-            <p className="text-gray-600 font-medium">
-              asd ia fba a osfba aga gaog ba goa g oagop agoisa
+            <p className="text-gray-500 font-medium font-sans">
+            Create user interface design with unique & modern ideas
             </p>
           </div>
           <div data-aos="slide-right" data-aos-delay="700" className="row-start-1 row-end-3 col-start-2 justify-self-center self-center p-4 transform hover:scale-110 transition-all cursor-pointer hover:shadow-xl shadow-xl rounded-lg">
             <img src={stat_up} className="w-10 h-10 mb-2" />
-            <p className="font-bold">Design Prototype</p>
-            <p className="text-gray-600 font-medium">
-              asd ia fba a osfba aga gaog ba goa g oagop agoisa
+            <p className="font-bold">Scalable Applicaiton</p>
+            <p className="text-gray-500 font-medium font-sans">
+              Create advance scalable applicaiton.
             </p>
           </div>
           <div data-aos="slide-up" data-aos-delay="700" className="p-4 transform hover:scale-110 transition-all cursor-pointer hover:shadow-xl rounded-lg">
             <img src={education} className="w-10 h-10 mb-2" />
-            <p className="font-bold">UX Research</p>
-            <p className="text-gray-600 font-medium">
-              asd ia fba a osfba aga gaog ba goa g oagop agoisa
+            <p className="font-bold">Modern Technology</p>
+            <p className="text-gray-500 font-medium font-sans">
+              Create digital user products with modern  technologies
             </p>
           </div>
         </div>
@@ -148,9 +147,8 @@ function App() {
           <p className="text-5xl font-bold">
             Latest <span className="text-green-600">Projects</span>
           </p>
-          <p className="text-md text-gray-600 mt-8">
-            loqbas ia onaos bnfobnas fabnsfob a fabsfaobsf oasf afahfobanf
-            oanbga sgn agnaonba sgbna sgnasgbnasgas g{" "}
+          <p className="text-md text-gray-600 mt-8 font-mono">
+            I have selected and mention here some of projects which includes websites and mobile applicaiton. Creating website for schools to creating applicaiton for large businesses.
           </p>
 
           <button className="bg-green-600 text-white px-4 p-2 rounded-lg mt-8 text-lg font-semibold cursor-pointer shadow-lg hover:scale-105 transition-all">
@@ -196,9 +194,8 @@ function App() {
         <div className="self-center justify-self-center">
           <p className="text-5xl font-bold text-green-600 text-center">Skills
           </p>
-          <p className="text-md text-gray-600 mt-8">
-            loqbas ia onaos bnfobnas fabnsfob a fabsfaobsf oasf afahfobanf
-            oanbga sgn agnaonba sgbna sgnasgbnasgas g
+          <p className="text-md text-gray-600 mt-8 font-mono">
+            My Skillset Includes Following Technologies
           </p>
         </div>
         <div className="flex flex-wrap space-x-4 justify-center items-center">
@@ -218,8 +215,7 @@ function App() {
             Let's Discuss Your <span className="text-green-600">Project</span>
           </p>
           <p className="text-md text-gray-600 mt-8 max-w-xl text-center self-center justify-self-center">
-            asdasdf asf uab fua f afaos fsafba fabf a fbaof abf ab aofba faisf
-            fas fsbafo as9f asofpsf afahfobanfaf saf as f as9fsaf
+           Let's make somthing new, different and more meaningful or make thing more better.
           </p>
         </div>
         <div className="grid md:grid-cols-[0.5fr_1fr]">
