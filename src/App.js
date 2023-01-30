@@ -48,7 +48,7 @@ function App() {
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
-    return await response.json(); // parses JSON response into native JavaScript objects
+    return await response; // parses JSON response into native JavaScript objects
   }
 
   function importAll(r) {
@@ -72,14 +72,24 @@ function App() {
   const handleClick = async (e)=>{
     if(value.name === '' || value.email === '' || value.phone === '') console.log()
     else {
-    const res =    postData('https://bus-pass-server.onrender.com/contact',{...value})
+    const res =  postData('https://bus-pass-server.onrender.com/contact',{...value})
     console.log(res)
     await toast.promise(res, {
       loading: 'Loading',
-      success: 'Got the data',
-      error: 'Error when fetching',
+      success: (data) =>{
+        setValue({
+          fullName:'',
+          phone:'',
+          message:'',
+          budget:'',
+          email:'',
+        })
+        return 'Congrats!! Your Query is sent...'
+      },
+      error: (data)=>{
+        return 'Error when fetching'
+      },
     });
-    console.log(res)
     }
   }
 
