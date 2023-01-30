@@ -19,13 +19,13 @@ function Header() {
           </li>
         </ul>
       </div>
-      <div>
+      <div className="justify-center items-center">
         <a
           href="https://drive.google.com/file/d/19rWtaIV_kCHZmPbLKOq4ToR-r5GFFiYW/view?usp=sharing"
           download
           target="_blank"
         >
-          <button className="border-2 p-2 rounded-lg lg:px-4 border-green-500 font-bold text-sm">
+          <button className="border-2 p-1 sm:p-2 rounded-lg lg:px-4 border-green-500 font-bold text-sm">
             Download Resume
           </button>
         </a>

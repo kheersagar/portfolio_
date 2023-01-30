@@ -26,8 +26,31 @@ import arrow_left from "./assests/arrow-left.svg";
 import call from "./assests/call.svg";
 import email from "./assests/email.svg";
 import location from "./assests/location.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 function App() {
+  const [value,setValue] = useState({
+    fullName:'',
+    phone:'',
+    message:'',
+    budget:'',
+    email:'',
+  })
+  async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return await response.json(); // parses JSON response into native JavaScript objects
+  }
+
   function importAll(r) {
     return r.keys().map(r);
   }
@@ -39,6 +62,27 @@ function App() {
   const skillsImage = importAll(
     require.context("./assests/skills", false, /\.(png|jpe?g|svg)$/)
   );
+
+  const handleChange = (e)=>{
+    const {name} = e.target
+    setValue((prev)=>{
+      return {...prev,...{[name] : e.target.value} }
+    })
+  }
+  const handleClick = async (e)=>{
+    if(value.name === '' || value.email === '' || value.phone === '') console.log()
+    else {
+    const res =    postData('https://bus-pass-server.onrender.com/contact',{...value})
+    console.log(res)
+    await toast.promise(res, {
+      loading: 'Loading',
+      success: 'Got the data',
+      error: 'Error when fetching',
+    });
+    console.log(res)
+    }
+  }
+
   useEffect(()=>{
     AOS.init({
       offset: 100,
@@ -47,8 +91,11 @@ function App() {
       delay: 10,
     });
   },[])
+
+
   return (
     <div className="relative">
+    <Toaster/>
     <ProgressBar color="#2563eb" />
       <div className="w-full sm:max-w-[65rem] m-auto ">
         <Header />
@@ -92,17 +139,17 @@ function App() {
           <p className="font-bold lg:text-5xl text-green-600">10+</p>
           <p className="font-semibold text-gray-500 mt-1 font-mono">Satisfied clients</p>
         </div>
-        <div className="border-r border-r-green-600 pl-10 transform hover:scale-110 transition-all cursor-pointer">
+        <div className="border-r border-r-green-60 pl-8 0 md:pl-10 transform hover:scale-110 transition-all cursor-pointer">
           <p className="font-bold lg:text-5xl text-green-600">20+</p>
           <p className="font-semibold text-gray-500 mt-1 font-mono">Projects completed</p>
         </div>
-        <div className="pl-10 transform hover:scale-110 transition-all cursor-pointer">
+        <div className="pl-8 md:pl-10 transform hover:scale-110 transition-all cursor-pointer">
           <p className="font-bold lg:text-5xl text-green-600 ">10+</p>
           <p className="font-semibold text-gray-500 mt-1 font-mono">Review given</p>
         </div>
       </div>
       {/* hire */}
-      <div data-aos="zoom-in-up"  className=" max-w-[65rem] m-auto mt-20 mb-20 grid md:grid-cols-2 gap-12 px-2" id="portfolio">
+      <div data-aos="zoom-in-up"  className=" max-w-[65rem] m-auto mt-20 mb-20 grid md:grid-cols-2 gap-12 px-2 text-center md:text-left" id="portfolio">
         <div className="self-center justify-self-center" >
           <p className="text-5xl font-bold">Why Hire Me For Your</p>
           <p className="text-5xl font-bold">
@@ -141,7 +188,7 @@ function App() {
         </div>
       </div>
       {/* work */}
-      <div data-aos="zoom-out-up" className=" max-w-[65rem] m-auto mt-20 mb-20 grid md:grid-cols-2 gap-12 px-2">
+      <div data-aos="zoom-out-up" className=" max-w-[65rem] m-auto mt-20 mb-20 grid md:grid-cols-2 gap-12 px-2 text-center md:text-left">
         <div className="self-center justify-self-center">
           <p className="text-5xl font-bold">My Creative Works</p>
           <p className="text-5xl font-bold">
@@ -155,7 +202,7 @@ function App() {
             Hire Me
           </button>
         </div>
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-8  overflow-x-hidden">
           <CarouselProvider
             naturalSlideWidth={100}
             naturalSlideHeight={125}
@@ -177,15 +224,6 @@ function App() {
               })}
             </Slider>
             <DotGroup className="dot-group mt-10 " />
-            {/* <div className="mt-4 hidden md:block">
-           <ButtonBack>
-              <img src={arrow_left}  className="w-10 "/>
-            </ButtonBack>
-            <ButtonNext className="absolute right-0">
-              {" "}
-              <img src={arrow_right}  className="w-10 "/>
-            </ButtonNext>
-           </div> */}
           </CarouselProvider>
         </div>
       </div>
@@ -194,14 +232,14 @@ function App() {
         <div className="self-center justify-self-center">
           <p className="text-5xl font-bold text-green-600 text-center">Skills
           </p>
-          <p className="text-md text-gray-600 mt-8 font-mono">
+          <p className="text-md text-gray-600 mt-8 font-mono text-center">
             My Skillset Includes Following Technologies
           </p>
         </div>
         <div className="flex flex-wrap space-x-4 justify-center items-center">
           {skillsImage.map((item,index)=>{
             return(
-              <div data-aos="zoom-out-up" data-aos-delay={600 + 50* index} className="cursor-pointer shadow-xl p-4 rounded-xl hover:scale-125 transition-all hover:z-20 ">
+              <div data-aos="zoom-out-up" data-aos-delay={600 + 50* index} className="cursor-pointer shadow-xl p-4 rounded-xl  transition-all  hover:animate-bounce">
                 <img src={item} className="w-20"/>
               </div>
             )
@@ -209,7 +247,7 @@ function App() {
         </div>
         </div>
       {/* contact */}
-      <div data-aos="zoom-out-up" data-aos-offset="200" data-aos-delay="800" className="max-w-[65rem] m-auto mt-20 mb-20 grid px-2 gap-y-10" id="contact">
+      <div data-aos="zoom-in-up"   className="max-w-[65rem] m-auto mt-20 mb-20 grid px-2 gap-y-10" id="contact">
         <div className="justify-center items-center grid ">
           <p className="text-5xl font-bold">
             Let's Discuss Your <span className="text-green-600">Project</span>
@@ -255,29 +293,44 @@ function App() {
           </div>
           <div className="grid grid-cols-2 gap-8 mt-10 md:m-0">
             <input
+              onChange={handleChange}
+              value={value.fullName}
+              name="fullName"
               placeholder="Full name"
               className="border rounded-lg py-2 px-4 h-16"
             />
             <input
+              onChange={handleChange}
+              value={value.email}
+              name="email"
               placeholder="Your email"
               className="border rounded-lg py-2 px-4 h-16"
             />
             <input
+              onChange={handleChange}
+              value={value.phone}
+              name="phone"
               placeholder="Phone number"
               className="border rounded-lg py-2 px-4 h-16"
             />
             <input
+              onChange={handleChange}
+              value={value.budget}
+              name="budget"
               placeholder="Budget"
               className="border rounded-lg py-2 px-4 h-16"
             />
             <input
+              onChange={handleChange}
+              value={value.message}
+              name="message"
               placeholder="Message"
               className="border rounded-lg py-2 px-4 col-start-1 col-end-3 h-32"
             />
           </div>
         </div>
         <div className="w-full  text-right">
-          <button className="bg-green-600 text-white px-4 py-2 rounded-xl shadow-lg hover:scale-105 transition-all">
+          <button onClick={handleClick}  className="bg-green-600 text-white px-4 py-2 rounded-xl shadow-lg hover:scale-105 transition-all">
             Submit
           </button>
         </div>
