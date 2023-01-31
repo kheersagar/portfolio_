@@ -246,7 +246,7 @@ function App() {
         </div>
       {/* contact */}
       <div data-aos="zoom-in-up"   className="max-w-[65rem] m-auto mt-20 mb-20 grid px-2 gap-y-10" id="contact">
-        <div className="justify-center items-center grid ">
+        <div className="justify-center items-center grid  text-center">
           <p className="text-5xl font-bold">
             Let's Discuss Your <span className="text-green-600">Project</span>
           </p>

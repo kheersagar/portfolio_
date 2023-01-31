@@ -25,9 +25,9 @@ function Header() {
           download
           target="_blank"
         >
-          <button className="border-2 p-1 sm:p-2 rounded-lg lg:px-4 border-green-500 font-bold text-sm">
+          {/* <button className="border-2 p-1 sm:p-2 rounded-lg lg:px-4 border-green-500 font-bold text-sm">
             Download Resume
-          </button>
+          </button> */}
         </a>
       </div>
     </div>
