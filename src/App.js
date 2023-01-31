@@ -110,22 +110,8 @@ function App() {
       <div className="w-full sm:max-w-[65rem] m-auto ">
         <Header />
       </div>
-      <div data-aos="zoom-out-up" className=" grid lg:grid-cols-[1fr_60px] max-w-max m-auto space-x-6 relative">
+      <div data-aos="zoom-out-up" className=" grid max-w-max m-auto space-x-6 relative justify-start items-start">
         <Landing />
-        <div className="transform lg:rotate-90 items-center h-max mt-4 flex justify-between lg:space-x-8 lg:py-8">
-          <p className="whitespace-nowrap text-blue-600 text-lg font-semibold">
-            Follow me:
-          </p>
-          <a href="https://www.linkedin.com/in/kheersagar-parja-02302b1b8/" target="_blank" className="contents">
-            <img src={link} className="w-10 h-10 " />
-          </a>
-          <a href="https://twitter.com/KheersagarParj2" target="_blank" className="contents">
-            <img src={twitter} className="w-10 h-10" />
-          </a>
-          <a href="https://github.com/kheersagar" target="_blank" className="contents">
-            <img src={github} className="w-10 h-10" />
-          </a>
-        </div>
 
         <div className="rounded-full bg-green-500 w-1 h-1 absolute left-20 top-12 "></div>
         <div className="rounded-full bg-red-500 w-1 h-1 absolute left-16 top-24"></div>
@@ -168,10 +154,11 @@ function App() {
           <p className="text-md text-gray-600 mt-8 font-mono">
             With Exprience of 2+ years and delivering projects Successfully I can understand and help you Develop app with modern                                               technologies and scale your business.
           </p>
-
+          <a href='#contact'>
           <button className="bg-green-600 text-white px-4 p-2 px- rounded-lg mt-8 text-lg font-semibold cursor-pointer shadow-lg hover:scale-105 transition-all">
             Hire Me
           </button>
+          </a>
         </div>
         <div className="grid grid-cols-2 gap-8">
           <div data-aos="slide-left" data-aos-delay="700" className="p-4 transform hover:scale-110 transition-all cursor-pointer hover:shadow-xl  rounded-lg">
@@ -207,10 +194,11 @@ function App() {
           <p className="text-md text-gray-600 mt-8 font-mono">
             I have selected and mention here some of projects which includes websites and mobile applicaiton. Creating website for schools to creating applicaiton for large businesses.
           </p>
-
+          <a href='#contact'>
           <button className="bg-green-600 text-white px-4 p-2 rounded-lg mt-8 text-lg font-semibold cursor-pointer shadow-lg hover:scale-105 transition-all">
             Hire Me
           </button>
+          </a>
         </div>
         <div className="grid grid-cols-1 gap-8  overflow-x-hidden">
           <CarouselProvider
@@ -343,6 +331,33 @@ function App() {
           <button onClick={handleClick}  className="bg-green-600 text-white px-4 py-2 rounded-xl shadow-lg hover:scale-105 transition-all">
             Submit
           </button>
+        </div>
+        <div className=" text-center flex justify-center items-center">
+        <div className="lg:max-w-[10rem]  items-center mt-4 lg:mt-0  flex justify-between lg:space-x-16 gap-8 lg:py-8">
+          
+          <p className="whitespace-nowrap text-green-600 text-lg font-semibold">
+            Follow me:
+          </p>
+          
+          
+
+          <a href="https://www.linkedin.com/in/kheersagar-parja-02302b1b8/" target="_blank" className="contents">
+            <img src={link} className="w-10 h-10" />
+          </a>
+          
+          
+
+          <a href="https://twitter.com/KheersagarParj2" target="_blank" className="contents">
+            <img src={twitter} className="w-10 h-10" />
+          </a>
+          
+          
+
+          <a href="https://github.com/kheersagar" target="_blank" className="contents">
+            <img src={github} className="w-10 h-10" />
+          </a>
+          
+        </div>
         </div>
       </div>
     </div>
